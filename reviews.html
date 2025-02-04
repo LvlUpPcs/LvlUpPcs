@@ -23,14 +23,23 @@
 
     <h1 class="page-title">Customer Reviews</h1>
 
-    <div id="reviews">
-        <!-- Reviews will appear here dynamically -->
-    </div>
+    <!-- Review Submission Form -->
+    <form class="review-form">
+        <textarea placeholder="Leave a review..." required></textarea>
+        <button type="submit">Submit Review</button>
+    </form>
 
-    <div id="review-form">
-        <input type="text" id="review-name" placeholder="Your Name" required>
-        <textarea id="review-content" placeholder="Your Review" required></textarea>
-        <button id="submit-review">Submit Review</button>
+    <!-- Display Reviews (this will be dynamically populated with JS) -->
+    <section class="reviews-section">
+        <!-- Example of a review -->
+        <div class="review">
+            <p><strong>John Doe:</strong> Great experience! Highly recommend!</p>
+        </div>
+    </section>
+
+    <!-- Theme Toggle Button (lower position) -->
+    <div class="theme-toggle">
+        <button id="theme-toggle-btn">Toggle Dark/Light Mode</button>
     </div>
 
     <script src="script.js"></script>
