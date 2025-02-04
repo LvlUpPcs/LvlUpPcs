@@ -6,10 +6,66 @@
     font-family: Arial, sans-serif;
 }
 
+/* Light Mode Styles */
+:root {
+    --background-color: #fff;
+    --text-color: #333;
+    --link-color: #007bff;
+    --button-bg-color: #ff4500;
+    --button-hover-color: #e03e00;
+    --nav-bg-color: #222;
+    --nav-text-color: white;
+    --nav-hover-color: #ff4500;
+    --page-title-color: #333;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    --background-color: #121212;
+    --text-color: #fff;
+    --link-color: #66b3ff;
+    --button-bg-color: #ff6600;
+    --button-hover-color: #e03e00;
+    --nav-bg-color: #1c1c1c;
+    --nav-text-color: white;
+    --nav-hover-color: #ff6600;
+    --page-title-color: #fff;
+}
+
+/* Global Styles */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff4500;
+}
+
+button {
+    background-color: var(--button-bg-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+}
+
 /* Navigation Bar */
 nav {
-    background-color: #222;
-    color: white;
+    background-color: var(--nav-bg-color);
+    color: var(--nav-text-color);
     display: flex;
     justify-content: space-between;
     padding: 15px 50px;
@@ -31,37 +87,35 @@ nav ul li {
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: white;
+    color: var(--nav-text-color);
     font-size: 18px;
     transition: 0.3s;
 }
 
 nav ul li a:hover {
-    color: #ff4500;
+    color: var(--nav-hover-color);
 }
 
 /* Hero Section */
 .hero {
     text-align: center;
-    margin-top: 80px; /* Move image lower */
+    margin-top: 80px;
 }
 
 .hero img {
-    width: 80%; /* Makes image responsive */
+    width: 80%;
     max-width: 750px;
-    height: auto; /* Maintain aspect ratio */
+    height: auto;
     display: block;
     margin: 0 auto;
 }
 
-/* "Shop Now" Button */
 .shop-now {
     display: inline-block;
     margin-top: 30px;
     padding: 15px 30px;
     font-size: 18px;
-    background-color: #ff4500;
+    background-color: var(--button-bg-color);
     color: white;
     border: none;
     cursor: pointer;
@@ -71,14 +125,18 @@ nav ul li a:hover {
 }
 
 .shop-now:hover {
-    background-color: #e03e00;
+    background-color: var(--button-hover-color);
 }
+
+/* Page Titles */
 .page-title {
     text-align: center;
     margin-top: 50px;
     font-size: 28px;
+    color: var(--page-title-color);
 }
 
+/* Shop Page */
 .product-grid {
     display: flex;
     justify-content: center;
@@ -102,14 +160,14 @@ nav ul li a:hover {
     display: inline-block;
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: #ff4500;
+    background-color: var(--button-bg-color);
     color: white;
     text-decoration: none;
     border-radius: 5px;
 }
 
 .buy-now:hover {
-    background-color: #e03e00;
+    background-color: var(--button-hover-color);
 }
 
 /* Contact Form */
@@ -129,7 +187,7 @@ nav ul li a:hover {
 }
 
 .contact-form button {
-    background-color: #ff4500;
+    background-color: var(--button-bg-color);
     color: white;
     padding: 10px 20px;
     border: none;
@@ -137,52 +195,19 @@ nav ul li a:hover {
 }
 
 .contact-form button:hover {
-    background-color: #e03e00;
-}
-/* Default is light mode */
-body {
-    background-color: white;
-    color: black;
+    background-color: var(--button-hover-color);
 }
 
-/* Dark mode styles */
-body.dark-mode {
-    background-color: #121212;
-    color: white;
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--nav-text-color);
+    transition: color 0.3s;
 }
 
-/* Optional: Customize other elements for both themes */
-.header {
-    background-color: lightblue; /* Light mode */
+body.dark-mode .dark-mode-toggle {
+    color: var(--button-bg-color); /* Change color in dark mode */
 }
-
-body.dark-mode .header {
-    background-color: #333;
-}
-<script>
-// Check if user preference is saved in localStorage
-const currentTheme = localStorage.getItem('theme');
-
-// If there is a saved theme, apply it
-if (currentTheme) {
-    document.body.classList.add(currentTheme);
-} else {
-    // If no theme is saved, check the system's theme preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark-mode');
-    }
-}
-
-// Toggle between light and dark mode
-function toggleTheme() {
-    if (document.body.classList.contains('dark-mode')) {
-        document.body.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light'); // Save the preference
-    } else {
-        document.body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark'); // Save the preference
-    }
-}
-</script>
-<button onclick="toggleTheme()">Toggle Dark/Light Mode</button>
-
