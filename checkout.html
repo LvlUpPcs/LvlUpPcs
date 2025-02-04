@@ -16,7 +16,7 @@
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const price = urlParams.get('price');
-        document.getElementById('price').innerText = `$${price}`;
+        document.getElementById('price').innerText = `$£{price}`;
 
         paypal.Buttons({
             createOrder: function(data, actions) {
