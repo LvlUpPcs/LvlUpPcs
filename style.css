@@ -73,3 +73,70 @@ nav ul li a:hover {
 .shop-now:hover {
     background-color: #e03e00;
 }
+.page-title {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 28px;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px;
+}
+
+.product {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.product img {
+    width: 100%;
+    max-width: 300px;
+}
+
+.buy-now {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff4500;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.buy-now:hover {
+    background-color: #e03e00;
+}
+
+/* Contact Form */
+.contact-form {
+    text-align: center;
+    margin: 30px auto;
+    max-width: 500px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    background-color: #ff4500;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #e03e00;
+}
+
