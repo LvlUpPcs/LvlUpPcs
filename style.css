@@ -140,15 +140,18 @@ body.light-mode {
     background-color: #e03e00;
 }
 
-/* Contact Form */
-.contact-form {
+/* Contact and Login Form */
+.contact-form, .login-form, .register-form {
     text-align: center;
     margin: 30px auto;
     max-width: 500px;
 }
 
 .contact-form input,
-.contact-form textarea {
+.contact-form textarea,
+.login-form input,
+.login-form textarea,
+.register-form input {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -156,7 +159,9 @@ body.light-mode {
     border-radius: 5px;
 }
 
-.contact-form button {
+.contact-form button,
+.login-form button,
+.register-form button {
     background-color: #ff4500;
     color: white;
     padding: 10px 20px;
@@ -164,6 +169,8 @@ body.light-mode {
     cursor: pointer;
 }
 
-.contact-form button:hover {
+.contact-form button:hover,
+.login-form button:hover,
+.register-form button:hover {
     background-color: #e03e00;
 }
