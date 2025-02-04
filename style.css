@@ -110,18 +110,78 @@ nav ul li a:hover {
     text-align: center;
 }
 
-/* Optional: To Style PayPal Buttons */
-.paypal-button {
+/* Consistent Button Styling */
+button, .nav-link {
     background-color: #ff4500;
-    padding: 15px 25px;
-    border-radius: 5px;
     color: white;
-    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
     border: none;
+    text-align: center;
     cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+button:hover, .nav-link:hover {
+    background-color: #e03e00;
+}
+
+/* Input fields (for all pages like login, contact, etc.) */
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+/* Contact Page Layout */
+.contact-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 100px;
+    padding: 20px;
+}
+
+.contact-form {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.contact-form input {
+    margin: 10px 0;
     width: 100%;
 }
 
-.paypal-button:hover {
-    background-color: #e03e00;
+.contact-form button {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Images (set image size to 750x750 as requested) */
+img.home-image {
+    width: 750px;
+    height: 750px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Adjusted Layout for Contact Page */
+.contact-info {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
 }
