@@ -10,23 +10,25 @@
 <body>
 
     <nav>
-        <div class="logo">LvlUpPcs</div>
+        <div class="logo">
+            <a href="index.html">LvlUpPcs</a>
+        </div>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="reviews.html">Reviews</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="shop.html" class="nav-link">Shop</a></li>
+            <li><a href="reviews.html" class="nav-link">Reviews</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="login.html" class="nav-link">Login</a></li>
         </ul>
     </nav>
 
     <h1 class="page-title">Contact Us</h1>
 
-<form class="contact-form" action="https://formspree.io/f/xpwqrggp" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-</form>
+    <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
 
 </body>
 </html>
