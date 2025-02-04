@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - LvlUpPcs</title>
+    <title>LvlUpPcs</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Navigation Bar -->
     <nav>
         <div class="logo">
+            <!-- LvlUpPcs logo is now a link to the homepage -->
             <a href="index.html">LvlUpPcs</a>
         </div>
         <ul>
@@ -21,15 +23,17 @@
         </ul>
     </nav>
 
-    <h1 class="page-title">Login</h1>
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="images/hero.jpg" alt="Gaming Setup">
+        <a href="shop.html" class="shop-now">Shop Now</a>
+    </section>
 
-    <form class="login-form">
-        <input type="email" placeholder="Email" required>
-        <input type="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-    </form>
+    <!-- Theme Toggle Button (lower position) -->
+    <div class="theme-toggle">
+        <button id="theme-toggle-btn">Toggle Dark/Light Mode</button>
+    </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
