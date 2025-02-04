@@ -1,53 +1,42 @@
 
-<!-- shop.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LvlUpPcs - Shop</title>
+    <title>Shop - LvlUpPcs</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>LvlUpPcs - Shop</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="checkout.html">Checkout</a></li>
-                <li><a href="https://discord.com/invite/YOUR_DISCORD_LINK" target="_blank">Join Discord</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <section class="products">
+
+    <nav>
+        <div class="logo">LvlUpPcs</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="page-title">Shop Our PCs</h1>
+
+    <section class="product-grid">
         <div class="product">
             <img src="images/lvl1.jpg" alt="Lvl 1 Gaming PC">
-            <h3>Lvl 1 Gaming PC</h3>
-            <p>Entry-level PC for casual gaming.</p>
-            <p>Price: £500</p>
-            <button onclick="checkout(500)">Buy Now</button>
+            <h2>Lvl 1 Gaming PC</h2>
+            <p>$799.99</p>
+            <a href="#" class="buy-now">Buy Now</a>
         </div>
+
         <div class="product">
             <img src="images/lvl2.jpg" alt="Lvl 2 Gaming PC">
-            <h3>Lvl 2 Gaming PC</h3>
-            <p>Mid-tier PC for smooth 1080p gaming.</p>
-            <p>Price: £750</p>
-            <button onclick="checkout(750)">Buy Now</button>
-        </div>
-        <div class="product">
-            <h3>Lvl 3 Gaming PC</h3>
-            <img src="images/lvl3.jpg" alt="Lvl 3 Gaming PC" width="750" height="750">
-            <p>High-end PC for 1440p and VR gaming.</p>
-            <p>Price: £1250</p>
-            <button onclick="checkout(1250)">Buy Now</button>
+            <h2>Lvl 2 Gaming PC</h2>
+            <p>$1299.99</p>
+            <a href="#" class="buy-now">Buy Now</a>
         </div>
     </section>
-    <script>
-        function checkout(price) {
-            window.location.href = `checkout.html?price=${price}`;
-        }
-    </script>
+
 </body>
 </html>
+
