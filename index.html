@@ -18,7 +18,28 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
+ const currentTheme = localStorage.getItem('theme');
 
+        if (currentTheme) {
+            document.body.classList.add(currentTheme);
+        } else {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+            }
+        }
+
+        function toggleTheme() {
+            if (document.body.classList.contains('dark-mode')) {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+    </script>
+</body>
+</html>
     <!-- Hero Section -->
     <section class="hero">
         <img src="images/hero.jpg" alt="Gaming Setup">
