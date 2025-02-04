@@ -1,21 +1,64 @@
-/* Move the hero image lower */
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #222;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 50px;
+    align-items: center;
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff4500;
+}
+
+/* Hero Section */
 .hero {
     text-align: center;
-    margin-top: 100px; /* Moves the image down */
+    margin-top: 80px; /* Move image lower */
 }
 
-/* Make sure the image fits properly */
 .hero img {
-    width: 750px; /* Keep original size */
-    height: 750px;
+    width: 80%; /* Makes image responsive */
+    max-width: 750px;
+    height: auto; /* Maintain aspect ratio */
     display: block;
-    margin: 0 auto; /* Center the image */
+    margin: 0 auto;
 }
 
-/* Move the "Shop Now" button lower */
+/* "Shop Now" Button */
 .shop-now {
-    display: block;
-    margin: 30px auto 0; /* Moves button down */
+    display: inline-block;
+    margin-top: 30px;
     padding: 15px 30px;
     font-size: 18px;
     background-color: #ff4500;
@@ -23,6 +66,8 @@
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
 .shop-now:hover {
