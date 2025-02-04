@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LvlUpPcs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">LvlUpPcs</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="page-title">Login to Your Account</h1>
+
+    <!-- Login Form -->
+    <form id="login-form" class="auth-form">
+        <input type="email" id="email" placeholder="Your Email" required>
+        <input type="password" id="password" placeholder="Your Password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        // Handle Login (for demo purposes)
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get form values
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Check if the user exists in localStorage
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+
+            // Basic validation
+            if (!email || !password) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            if (storedUser && storedUser.email === email && storedUser.password === password) {
+                // User is authenticated, allow them to go to the order page
+                alert("Login successful!");
+                window.location.href = 'order.html';  // Redirect to the order page
+            } else {
+                alert("Invalid email or password.");
+            }
+        });
+    </script>
+
+</body>
+</html>
