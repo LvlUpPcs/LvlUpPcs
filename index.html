@@ -3,22 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LvlUpPcs - Home</title>
+    <title>LvlUpPcs</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Firebase SDK -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics.js";
+      import { getFirestore, collection, addDoc, getDocs, orderBy, query } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAKN3-inqbmEFl4GTwTL1egwRZ2oHRqhy0",
+        authDomain: "lvluppcs-8d104.firebaseapp.com",
+        projectId: "lvluppcs-8d104",
+        storageBucket: "lvluppcs-8d104.firebasestorage.app",
+        messagingSenderId: "287298172113",
+        appId: "1:287298172113:web:f12f56f7ea5e2afc7341f0",
+        measurementId: "G-K9P4WKM9QZ"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const db = getFirestore(app);
+    </script>
 </head>
 <body>
 
     <!-- Navigation Bar -->
     <nav>
-        <div class="logo">LvlUpPcs</div>
+        <div class="logo">
+            <a href="index.html">LvlUpPcs</a>
+        </div>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="reviews.html">Reviews</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html">Login</a></li>
+            <li><a href="shop.html" class="nav-link">Shop</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="login.html" class="nav-link">Login</a></li>
         </ul>
-        <button class="theme-toggle">🌙</button>
     </nav>
 
     <!-- Hero Section -->
@@ -27,7 +49,18 @@
         <a href="shop.html" class="shop-now">Shop Now</a>
     </section>
 
-    <script src="script.js"></script>
+    <!-- Dark Mode Toggle Button -->
+    <div class="theme-toggle">
+        <button id="theme-toggle-btn">Toggle Dark/Light Mode</button>
+    </div>
+
+    <script>
+      // Light/Dark Mode Toggle
+      const toggleButton = document.getElementById('theme-toggle-btn');
+      toggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+      });
+    </script>
+
 </body>
 </html>
-
