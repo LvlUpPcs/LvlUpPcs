@@ -1,78 +1,79 @@
 
-/* Reset Styles */
-* {
+/* Basic styles for pages */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* Navigation Bar */
 nav {
-    background-color: #222;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 50px;
-    align-items: center;
+    background-color: #333;
+    padding: 15px;
+    text-align: center;
 }
 
-nav .logo {
+nav .logo a {
+    color: #fff;
     font-size: 24px;
-    font-weight: bold;
+    text-decoration: none;
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
+    list-style-type: none;
+    padding: 0;
 }
 
 nav ul li {
-    margin-left: 20px;
+    display: inline-block;
+    margin: 0 10px;
 }
 
 nav ul li a {
+    color: #fff;
     text-decoration: none;
-    color: white;
     font-size: 18px;
-    transition: 0.3s;
 }
 
-nav ul li a:hover {
-    color: #ff4500;
-}
-
-/* Hero Section */
-.hero {
+.page-title {
     text-align: center;
-    margin-top: 80px;
+    font-size: 32px;
+    margin: 20px 0;
 }
 
-.hero img {
+/* Form Styles */
+form input, form textarea {
     width: 80%;
-    max-width: 750px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
 }
 
-/* "Shop Now" Button */
-.shop-now {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 15px 30px;
-    font-size: 18px;
-    background-color: #ff4500;
+form button {
+    background-color: #4CAF50;
     color: white;
-    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: 0.3s;
 }
 
-.shop-now:hover {
-    background-color: #e03e00;
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Reviews Section */
+.reviews-section {
+    margin: 20px;
+}
+
+.review {
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.reviews-section p {
+    font-size: 18px;
 }
 
 /* Theme Toggle Button */
@@ -82,95 +83,63 @@ nav ul li a:hover {
     left: 20px;
 }
 
-/* Dark Mode */
-body.dark-mode {
-    background-color: #121212;
-    color: white;
-}
-
-body.dark-mode nav {
-    background-color: #333;
-}
-
-body.dark-mode .shop-now {
-    background-color: #ff4500;
-}
-
-body.dark-mode .shop-now:hover {
-    background-color: #e03e00;
-}
-
-/* Light Mode */
-body.light-mode {
-    background-color: white;
-    color: black;
-}
-
-/* Product Grid */
-.product-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 50px;
-}
-
-.product {
-    text-align: center;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.product img {
-    width: 100%;
-    max-width: 300px;
-}
-
-.buy-now {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #ff4500;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.buy-now:hover {
-    background-color: #e03e00;
-}
-
-/* Contact and Login Form */
-.contact-form, .login-form, .register-form {
-    text-align: center;
-    margin: 30px auto;
-    max-width: 500px;
-}
-
-.contact-form input,
-.contact-form textarea,
-.login-form input,
-.login-form textarea,
-.register-form input {
-    width: 100%;
+#theme-toggle-btn {
     padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.contact-form button,
-.login-form button,
-.register-form button {
-    background-color: #ff4500;
-    color: white;
-    padding: 10px 20px;
-    border: none;
+    font-size: 16px;
     cursor: pointer;
 }
 
-.contact-form button:hover,
-.login-form button:hover,
-.register-form button:hover {
-    background-color: #e03e00;
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+nav.dark-mode {
+    background-color: #222;
+}
+
+nav.dark-mode .logo a,
+nav.dark-mode ul li a {
+    color: #fff;
+}
+
+form.dark-mode input,
+form.dark-mode textarea {
+    background-color: #555;
+    color: #fff;
+    border: 1px solid #777;
+}
+
+form.dark-mode button {
+    background-color: #555;
+    color: white;
+}
+
+form.dark-mode button:hover {
+    background-color: #777;
+}
+
+.reviews-section.dark-mode .review {
+    background-color: #444;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    nav ul {
+        text-align: left;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .page-title {
+        font-size: 24px;
+    }
+
+    form input, form textarea {
+        width: 90%;
+    }
 }
