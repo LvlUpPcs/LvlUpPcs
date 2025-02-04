@@ -296,3 +296,61 @@ body.dark-mode .dark-mode-toggle {
 .rating label {
     font-size: 16px;
 }
+/* General Styles */
+.auth-form {
+    width: 50%;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.auth-form input,
+.auth-form button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.auth-form button {
+    background-color: #ff4500;
+    color: white;
+    cursor: pointer;
+}
+
+.auth-form button:hover {
+    background-color: #e03e00;
+}
+
+/* Order Page */
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px;
+}
+
+.product {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.product img {
+    width: 100%;
+    max-width: 300px;
+}
+
+.order-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.order-button:hover {
+    background-color: #e03e00;
+}
