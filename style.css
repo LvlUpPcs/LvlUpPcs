@@ -1,22 +1,10 @@
+
 /* Reset Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-}
-
-/* General Styles */
-body {
-    background-color: white;
-    color: black;
-    transition: all 0.3s ease;
-}
-
-/* Dark Mode */
-body.dark-mode {
-    background-color: #121212;
-    color: white;
 }
 
 /* Navigation Bar */
@@ -29,9 +17,7 @@ nav {
     align-items: center;
 }
 
-nav .logo a {
-    text-decoration: none;
-    color: white;
+nav .logo {
     font-size: 24px;
     font-weight: bold;
 }
@@ -42,4 +28,142 @@ nav ul {
 }
 
 nav ul li {
-   
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff4500;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.hero img {
+    width: 80%;
+    max-width: 750px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* "Shop Now" Button */
+.shop-now {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.shop-now:hover {
+    background-color: #e03e00;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark-mode nav {
+    background-color: #333;
+}
+
+body.dark-mode .shop-now {
+    background-color: #ff4500;
+}
+
+body.dark-mode .shop-now:hover {
+    background-color: #e03e00;
+}
+
+/* Light Mode */
+body.light-mode {
+    background-color: white;
+    color: black;
+}
+
+/* Product Grid */
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px;
+}
+
+.product {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.product img {
+    width: 100%;
+    max-width: 300px;
+}
+
+.buy-now {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff4500;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.buy-now:hover {
+    background-color: #e03e00;
+}
+
+/* Contact Form */
+.contact-form {
+    text-align: center;
+    margin: 30px auto;
+    max-width: 500px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    background-color: #ff4500;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #e03e00;
+}
