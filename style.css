@@ -1,145 +1,127 @@
 
-/* Basic styles for pages */
-body {
-    font-family: Arial, sans-serif;
+/* General Reset for consistent styles */
+* {
     margin: 0;
     padding: 0;
-    transition: background-color 0.3s, color 0.3s;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
+/* Navigation */
 nav {
-    background-color: #333;
-    padding: 15px;
-    text-align: center;
+    background-color: #222;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 50px;
+    align-items: center;
 }
 
 nav .logo a {
-    color: #fff;
+    color: white;
     font-size: 24px;
+    font-weight: bold;
     text-decoration: none;
 }
 
 nav ul {
-    list-style-type: none;
-    padding: 0;
+    list-style: none;
+    display: flex;
 }
 
 nav ul li {
-    display: inline-block;
-    margin: 0 10px;
+    margin-left: 20px;
 }
 
 nav ul li a {
-    color: #fff;
     text-decoration: none;
+    color: white;
     font-size: 18px;
+    transition: 0.3s;
 }
 
+nav ul li a:hover {
+    color: #ff4500;
+}
+
+/* Page Title */
 .page-title {
     text-align: center;
-    font-size: 32px;
-    margin: 20px 0;
+    margin-top: 50px;
+    font-size: 28px;
 }
 
-/* Form Styles */
-form input, form textarea {
-    width: 80%;
-    padding: 10px;
+/* Checkout Form */
+.checkout-form {
+    text-align: center;
+    margin: 30px auto;
+    max-width: 500px;
+}
+
+.checkout-form input,
+.checkout-form button {
+    width: 100%;
+    padding: 15px;
     margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.checkout-form input {
     font-size: 16px;
 }
 
-form button {
-    background-color: #4CAF50;
+.checkout-form button {
+    background-color: #ff4500;
     color: white;
-    padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    border: none;
+    transition: 0.3s;
 }
 
-form button:hover {
-    background-color: #45a049;
+.checkout-form button:hover {
+    background-color: #e03e00;
 }
 
-/* Reviews Section */
-.reviews-section {
-    margin: 20px;
+/* Order Summary */
+.order-summary {
+    text-align: center;
+    margin: 30px auto;
+    max-width: 500px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
 }
 
-.review {
-    background-color: #f1f1f1;
-    padding: 10px;
+.order-summary h3 {
+    font-size: 24px;
     margin-bottom: 10px;
 }
 
-.reviews-section p {
+.order-summary p {
     font-size: 18px;
 }
 
-/* Theme Toggle Button */
-.theme-toggle {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
+/* PayPal Button Styling */
+#paypal-button-container {
+    margin: 30px auto;
+    max-width: 500px;
+    text-align: center;
 }
 
-#theme-toggle-btn {
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-/* Dark Mode Styles */
-body.dark-mode {
-    background-color: #333;
-    color: #fff;
-}
-
-nav.dark-mode {
-    background-color: #222;
-}
-
-nav.dark-mode .logo a,
-nav.dark-mode ul li a {
-    color: #fff;
-}
-
-form.dark-mode input,
-form.dark-mode textarea {
-    background-color: #555;
-    color: #fff;
-    border: 1px solid #777;
-}
-
-form.dark-mode button {
-    background-color: #555;
+/* Optional: To Style PayPal Buttons */
+.paypal-button {
+    background-color: #ff4500;
+    padding: 15px 25px;
+    border-radius: 5px;
     color: white;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
 }
 
-form.dark-mode button:hover {
-    background-color: #777;
-}
-
-.reviews-section.dark-mode .review {
-    background-color: #444;
-}
-
-/* Mobile View */
-@media (max-width: 768px) {
-    nav ul {
-        text-align: left;
-    }
-
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
-
-    .page-title {
-        font-size: 24px;
-    }
-
-    form input, form textarea {
-        width: 90%;
-    }
+.paypal-button:hover {
+    background-color: #e03e00;
 }
