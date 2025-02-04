@@ -1,4 +1,5 @@
-/* Reset Styles */
+
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,66 +7,10 @@
     font-family: Arial, sans-serif;
 }
 
-/* Light Mode Styles */
-:root {
-    --background-color: #fff;
-    --text-color: #333;
-    --link-color: #007bff;
-    --button-bg-color: #ff4500;
-    --button-hover-color: #e03e00;
-    --nav-bg-color: #222;
-    --nav-text-color: white;
-    --nav-hover-color: #ff4500;
-    --page-title-color: #333;
-}
-
-/* Dark Mode Styles */
-body.dark-mode {
-    --background-color: #121212;
-    --text-color: #fff;
-    --link-color: #66b3ff;
-    --button-bg-color: #ff6600;
-    --button-hover-color: #e03e00;
-    --nav-bg-color: #1c1c1c;
-    --nav-text-color: white;
-    --nav-hover-color: #ff6600;
-    --page-title-color: #fff;
-}
-
-/* Global Styles */
-body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font-family: Arial, sans-serif;
-}
-
-a {
-    color: var(--link-color);
-    text-decoration: none;
-}
-
-a:hover {
-    color: #ff4500;
-}
-
-button {
-    background-color: var(--button-bg-color);
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    padding: 10px 20px;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: var(--button-hover-color);
-}
-
-/* Navigation Bar */
+/* Navigation Styles */
 nav {
-    background-color: var(--nav-bg-color);
-    color: var(--nav-text-color);
+    background-color: #222;
+    color: white;
     display: flex;
     justify-content: space-between;
     padding: 15px 50px;
@@ -87,13 +32,22 @@ nav ul li {
 }
 
 nav ul li a {
-    color: var(--nav-text-color);
+    text-decoration: none;
+    color: white;
     font-size: 18px;
     transition: 0.3s;
 }
 
 nav ul li a:hover {
-    color: var(--nav-hover-color);
+    color: #ff4500;
+}
+
+button.theme-toggle {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 /* Hero Section */
@@ -106,37 +60,23 @@ nav ul li a:hover {
     width: 80%;
     max-width: 750px;
     height: auto;
-    display: block;
-    margin: 0 auto;
 }
 
-.shop-now {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 15px 30px;
-    font-size: 18px;
-    background-color: var(--button-bg-color);
+/* Button Styles */
+.shop-now, .order-button, .theme-toggle {
+    background-color: #ff4500;
     color: white;
+    padding: 10px 20px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    text-decoration: none;
-    transition: 0.3s;
 }
 
-.shop-now:hover {
-    background-color: var(--button-hover-color);
+.shop-now:hover, .order-button:hover, .theme-toggle:hover {
+    background-color: #e03e00;
 }
 
-/* Page Titles */
-.page-title {
-    text-align: center;
-    margin-top: 50px;
-    font-size: 28px;
-    color: var(--page-title-color);
-}
-
-/* Shop Page */
+/* Product and Reviews */
 .product-grid {
     display: flex;
     justify-content: center;
@@ -154,203 +94,33 @@ nav ul li a:hover {
 .product img {
     width: 100%;
     max-width: 300px;
-}
-
-.buy-now {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: var(--button-bg-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.buy-now:hover {
-    background-color: var(--button-hover-color);
-}
-
-/* Contact Form */
-.contact-form {
-    text-align: center;
-    margin: 30px auto;
-    max-width: 500px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.contact-form button {
-    background-color: var(--button-bg-color);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
-
-.contact-form button:hover {
-    background-color: var(--button-hover-color);
-}
-
-/* Dark Mode Toggle Button */
-.dark-mode-toggle {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: var(--nav-text-color);
-    transition: color 0.3s;
-}
-
-body.dark-mode .dark-mode-toggle {
-    color: var(--button-bg-color); /* Change color in dark mode */
-}
-/* Reviews Section */
-.reviews-container {
-    padding: 50px;
 }
 
 .review {
     background-color: #f9f9f9;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
     border: 1px solid #ddd;
-}
-
-.review h3 {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.review .verified {
-    color: green;
-    font-size: 14px;
-    font-weight: normal;
-    margin-left: 10px;
-}
-
-.review-text {
-    margin-top: 10px;
-    font-size: 16px;
-}
-
-.review-rating {
-    margin-top: 10px;
-    font-size: 18px;
-}
-
-.review-rating span {
-    color: gold;
-}
-
-/* Review Form */
-.form-title {
-    text-align: center;
-    margin-top: 50px;
-    font-size: 28px;
-}
-
-.review-form {
-    width: 50%;
-    margin: 30px auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.review-form input,
-.review-form textarea,
-.review-form select {
+    margin-bottom: 10px;
     padding: 10px;
-    border: 1px solid #ddd;
     border-radius: 5px;
 }
 
-.review-form button {
-    background-color: #ff4500;
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
     color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 16px;
 }
 
-.review-form button:hover {
-    background-color: #e03e00;
+body.dark-mode nav {
+    background-color: #333;
 }
 
-.rating {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.rating label {
-    font-size: 16px;
-}
-/* General Styles */
-.auth-form {
-    width: 50%;
-    margin: 30px auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.auth-form input,
-.auth-form button {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.auth-form button {
-    background-color: #ff4500;
+body.dark-mode .product, .body.dark-mode .review {
+    background-color: #333;
     color: white;
-    cursor: pointer;
 }
 
-.auth-form button:hover {
-    background-color: #e03e00;
-}
-
-/* Order Page */
-.product-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 50px;
-}
-
-.product {
-    text-align: center;
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-.product img {
-    width: 100%;
-    max-width: 300px;
-}
-
-.order-button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #ff4500;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.order-button:hover {
-    background-color: #e03e00;
+/* Light Mode */
+body.light-mode {
+    background-color: white;
+    color: black;
 }
