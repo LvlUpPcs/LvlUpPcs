@@ -10,38 +10,24 @@
 <body>
 
     <nav>
-        <div class="logo">LvlUpPcs</div>
+        <div class="logo">
+            <a href="index.html">LvlUpPcs</a>
+        </div>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="reviews.html">Reviews</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="shop.html" class="nav-link">Shop</a></li>
+            <li><a href="reviews.html" class="nav-link">Reviews</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="login.html" class="nav-link">Login</a></li>
         </ul>
     </nav>
 
-    <h1>Order Your PC</h1>
+    <h1 class="page-title">Order Details</h1>
 
-    <section class="product-grid">
-        <div class="product">
-            <img src="images/lvl1.jpg" alt="Lvl 1 Gaming PC">
-            <h2>Lvl 1 Gaming PC</h2>
-            <p>$799.99</p>
-            <button class="order-button">Order Now</button>
-        </div>
-        <div class="product">
-            <img src="images/lvl2.jpg" alt="Lvl 2 Gaming PC">
-            <h2>Lvl 2 Gaming PC</h2>
-            <p>$1299.99</p>
-            <button class="order-button">Order Now</button>
-        </div>
-    </section>
+    <form class="order-form">
+        <input type="text" placeholder="Billing Address" required>
+        <input type="text" placeholder="Shipping Address" required>
+        <button type="submit">Place Order</button>
+    </form>
 
-    <script>
-        const user = JSON.parse(localStorage.getItem('user'));
-        if (!user) {
-            alert('You must be logged in to place an order.');
-            window.location.href = 'login.html';
-        }
-    </script>
 </body>
 </html>
