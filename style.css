@@ -6,6 +6,19 @@
     font-family: Arial, sans-serif;
 }
 
+/* General Styles */
+body {
+    background-color: white;
+    color: black;
+    transition: all 0.3s ease;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
 /* Navigation Bar */
 nav {
     background-color: #222;
@@ -16,7 +29,9 @@ nav {
     align-items: center;
 }
 
-nav .logo {
+nav .logo a {
+    text-decoration: none;
+    color: white;
     font-size: 24px;
     font-weight: bold;
 }
@@ -35,27 +50,30 @@ nav ul li a {
     color: white;
     font-size: 18px;
     transition: 0.3s;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-nav ul li a:hover {
-    color: #ff4500;
+nav ul li a:hover, nav ul li a.active {
+    background-color: #ff4500;
+    color: white;
 }
 
 /* Hero Section */
 .hero {
     text-align: center;
-    margin-top: 80px; /* Move image lower */
+    margin-top: 80px;
 }
 
 .hero img {
-    width: 80%; /* Makes image responsive */
+    width: 80%;
     max-width: 750px;
-    height: auto; /* Maintain aspect ratio */
+    height: auto;
     display: block;
     margin: 0 auto;
 }
 
-/* "Shop Now" Button */
+/* Shop Now Button */
 .shop-now {
     display: inline-block;
     margin-top: 30px;
@@ -67,70 +85,54 @@ nav ul li a:hover {
     cursor: pointer;
     border-radius: 5px;
     text-decoration: none;
-    transition: 0.3s;
 }
 
 .shop-now:hover {
     background-color: #e03e00;
 }
 
-/* Review Page */
-h3 {
-    text-align: center;
-    margin-bottom: 20px;
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
 }
 
-#review-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#review-form input, #review-form textarea {
-    width: 80%;
-    max-width: 600px;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-#review-form button {
+#theme-toggle-btn {
+    padding: 10px 20px;
     background-color: #ff4500;
     color: white;
-    padding: 10px 20px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
 }
 
-#review-form button:hover {
+#theme-toggle-btn:hover {
     background-color: #e03e00;
 }
 
-/* Reviews Section */
-#reviews-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+/* Navigation Link Styles */
+.nav-link {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-#reviews-container div {
-    width: 80%;
-    max-width: 600px;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+.nav-link:hover {
+    background-color: #ff4500;
+    color: white;
 }
 
-#reviews-container div strong {
-    font-size: 18px;
+/* Light Mode */
+body:not(.dark-mode) {
+    background-color: white;
+    color: black;
 }
 
-#reviews-container div p {
-    margin-top: 10px;
-    font-size: 16px;
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
 }
+
