@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LvlUpPcs</title>
+    <title>LvlUpPcs - Home</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <!-- Navigation Bar -->
     <nav>
         <div class="logo">LvlUpPcs</div>
@@ -15,40 +16,18 @@
             <li><a href="shop.html">Shop</a></li>
             <li><a href="reviews.html">Reviews</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
         </ul>
-        <button id="dark-mode-toggle" class="dark-mode-toggle">🌙</button>
+        <button class="theme-toggle">🌙</button>
     </nav>
-</body>
-</html>
+
     <!-- Hero Section -->
     <section class="hero">
         <img src="images/hero.jpg" alt="Gaming Setup">
         <a href="shop.html" class="shop-now">Shop Now</a>
     </section>
 
+    <script src="script.js"></script>
 </body>
 </html>
 
-<script>
-    // Check if the theme is stored in localStorage
-    const storedMode = localStorage.getItem('theme');
-    if (storedMode) {
-        document.body.classList.toggle('dark-mode', storedMode === 'dark');
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        // If the system is set to dark mode, apply dark mode
-        document.body.classList.add('dark-mode');
-    }
-
-    // Function to toggle dark mode
-    function toggleDarkMode() {
-        const isDarkMode = document.body.classList.toggle('dark-mode');
-        // Store the theme in localStorage
-        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-    }
-
-    // Add event listener to dark mode button
-    const darkModeButton = document.getElementById('dark-mode-toggle');
-    if (darkModeButton) {
-        darkModeButton.addEventListener('click', toggleDarkMode);
-    }
-</script>
