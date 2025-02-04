@@ -10,40 +10,24 @@
 <body>
 
     <nav>
-        <div class="logo">LvlUpPcs</div>
+        <div class="logo">
+            <a href="index.html">LvlUpPcs</a>
+        </div>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="reviews.html">Reviews</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="shop.html" class="nav-link">Shop</a></li>
+            <li><a href="reviews.html" class="nav-link">Reviews</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="login.html" class="nav-link">Login</a></li>
         </ul>
     </nav>
 
-    <h1>Login to Your Account</h1>
+    <h1 class="page-title">Login</h1>
 
-    <!-- Login Form -->
-    <form id="login-form">
-        <input type="email" id="email" placeholder="Your Email" required>
-        <input type="password" id="password" placeholder="Your Password" required>
+    <form class="login-form">
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
         <button type="submit">Login</button>
     </form>
 
-    <script>
-        document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const storedUser = JSON.parse(localStorage.getItem('user'));
-
-            if (storedUser && storedUser.email === email && storedUser.password === password) {
-                alert('Login successful!');
-                window.location.href = 'order.html';
-            } else {
-                alert('Invalid email or password.');
-            }
-        });
-    </script>
 </body>
 </html>
-
