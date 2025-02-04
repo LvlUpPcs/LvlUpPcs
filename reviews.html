@@ -18,78 +18,46 @@
         </ul>
     </nav>
 
-    <h1 class="page-title">Customer Reviews</h1>
+    <h1>Customer Reviews</h1>
 
-    <!-- Displaying Reviews -->
-    <section class="reviews-container">
-        <div class="review">
-            <h3>John Doe <span class="verified">(Verified Customer)</span></h3>
-            <p class="review-text">"Amazing gaming PC! Runs all my games flawlessly. Great service and quick shipping!"</p>
-            <div class="review-rating">⭐⭐⭐⭐⭐</div>
-        </div>
-
-        <div class="review">
-            <h3>Jane Smith <span class="verified">(Verified Customer)</span></h3>
-            <p class="review-text">"Great build quality, and the PC looks amazing. I will definitely recommend it to others!"</p>
-            <div class="review-rating">⭐⭐⭐⭐⭐</div>
-        </div>
-
-        <!-- More reviews would be displayed here dynamically -->
-    </section>
-
-    <!-- Review Submission Form -->
-    <h2 class="form-title">Submit Your Review</h2>
-    <form class="review-form" id="review-form">
-        <input type="text" id="customer-name" placeholder="Your Name" required>
-        <input type="email" id="customer-email" placeholder="Your Email (for verification)" required>
+    <!-- Add Review Form -->
+    <form id="review-form">
         <textarea id="review-text" placeholder="Write your review..." required></textarea>
-        <div class="rating">
-            <label for="rating">Rating:</label>
-            <select id="rating" required>
-                <option value="5">⭐⭐⭐⭐⭐</option>
-                <option value="4">⭐⭐⭐⭐</option>
-                <option value="3">⭐⭐⭐</option>
-                <option value="2">⭐⭐</option>
-                <option value="1">⭐</option>
-            </select>
-        </div>
         <button type="submit">Submit Review</button>
     </form>
 
+    <h2>Reviews:</h2>
+    <div id="reviews-container"></div>
+
     <script>
-        // Handle form submission (for demo purposes)
-        document.getElementById("review-form").addEventListener("submit", function(event) {
+        document.getElementById('review-form').addEventListener('submit', function(event) {
             event.preventDefault();
 
-            // Get form values
-            const name = document.getElementById("customer-name").value;
-            const email = document.getElementById("customer-email").value;
-            const reviewText = document.getElementById("review-text").value;
-            const rating = document.getElementById("rating").value;
+            const reviewText = document.getElementById('review-text').value;
+            const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
 
-            // Basic validation for empty fields
-            if (!name || !email || !reviewText) {
-                alert("Please fill in all fields.");
-                return;
+            if (reviewText) {
+                reviews.push(reviewText);
+                localStorage.setItem('reviews', JSON.stringify(reviews));
+                displayReviews();
             }
-
-            // Here you could add an actual backend call to store the review
-
-            // For now, let's display the review on the page (simulated)
-            const reviewContainer = document.querySelector(".reviews-container");
-            const newReview = document.createElement("div");
-            newReview.classList.add("review");
-            newReview.innerHTML = `
-                <h3>${name} <span class="verified">(Verified Customer)</span></h3>
-                <p class="review-text">"${reviewText}"</p>
-                <div class="review-rating">${"⭐".repeat(rating)}</div>
-            `;
-            reviewContainer.prepend(newReview);
-
-            // Reset the form
-            document.getElementById("review-form").reset();
         });
-    </script>
 
+        function displayReviews() {
+            const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+            const reviewsContainer = document.getElementById('reviews-container');
+            reviewsContainer.innerHTML = '';
+
+            reviews.forEach((review, index) => {
+                const reviewDiv = document.createElement('div');
+                reviewDiv.classList.add('review');
+                reviewDiv.textContent = review;
+                reviewsContainer.appendChild(reviewDiv);
+            });
+        }
+
+        displayReviews();
+    </script>
 </body>
 </html>
+
