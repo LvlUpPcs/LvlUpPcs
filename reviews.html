@@ -49,6 +49,8 @@
 
           // Fetch and display reviews after adding a new one
           displayReviews();
+          // Show reviews after submission
+          document.getElementById("reviews-section").style.display = "block";
         } catch (error) {
           console.error("Error adding review: ", error);
         }
@@ -77,8 +79,12 @@
       }
 
       // Fetch and display reviews on page load
-      window.onload = displayReviews;
+      window.onload = function() {
+        document.getElementById("reviews-section").style.display = "none"; // Hide reviews initially
+      }
     </script>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -94,9 +100,11 @@
 
     <hr>
 
-    <h3>Reviews</h3>
-    <div id="reviews-container"></div>
+    <!-- Reviews Section (Initially Hidden) -->
+    <div id="reviews-section">
+        <h3>Reviews</h3>
+        <div id="reviews-container"></div>
+    </div>
 
 </body>
 </html>
-
