@@ -1,39 +1,30 @@
-<!-- style.css -->
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #111;
-    color: #fff;
+/* Move the hero image lower */
+.hero {
     text-align: center;
-    margin: 0;
+    margin-top: 100px; /* Moves the image down */
 }
-.hero-image {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
+
+/* Make sure the image fits properly */
+.hero img {
+    width: 750px; /* Keep original size */
+    height: 750px;
+    display: block;
+    margin: 0 auto; /* Center the image */
 }
-header {
-    background-color: #222;
-    padding: 20px;
-    font-size: 20px;
-}
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
+
+/* Move the "Shop Now" button lower */
+.shop-now {
+    display: block;
+    margin: 30px auto 0; /* Moves button down */
+    padding: 15px 30px;
     font-size: 18px;
-}
-.btn {
-    background: #ff6600;
+    background-color: #ff4500;
     color: white;
-    padding: 15px 25px;
-    text-decoration: none;
+    border: none;
+    cursor: pointer;
     border-radius: 5px;
-    font-size: 20px;
+}
+
+.shop-now:hover {
+    background-color: #e03e00;
 }
