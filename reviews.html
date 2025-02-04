@@ -3,61 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reviews - LvlUpPcs</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Customer Reviews</title>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics.js";
+      import { getFirestore, collection, addDoc, getDocs, orderBy, query } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+
+      // Firebase configuration (use your provided Firebase config here)
+      const firebaseConfig = {
+        apiKey: "AIzaSyAKN3-inqbmEFl4GTwTL1egwRZ2oHRqhy0",
+        authDomain: "lvluppcs-8d104.firebaseapp.com",
+        projectId: "lvluppcs-8d104",
+        storageBucket: "lvluppcs-8d104.firebasestorage.app",
+        messagingSenderId: "287298172113",
+        appId: "1:287298172113:web:f12f56f7ea5e2afc7341f0",
+        measurementId: "G-K9P4WKM9QZ"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const db = getFirestore(app);
+
+      // Submit review function
+      const reviewForm = document.getElementById("review-form");
+      reviewForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const review = document.getElementById("review").value;
+
+        // Add review to Firestore
+        try {
+          await addDoc(collection(db, "reviews"), {
+            name: name,
+            review: review,
+            timestamp: new Date()
+          });
+
+          // Clear the form after submission
+          reviewForm.reset();
+
+          // Fetch and display reviews after adding a new one
+          displayReviews();
+        } catch (error) {
+          console.error("Error adding review: ", error);
+        }
+      });
+
+      // Function to display all reviews
+      async function displayReviews() {
+        const reviewsContainer = document.getElementById("reviews-container");
+        reviewsContainer.innerHTML = ""; // Clear existing reviews
+
+        // Get reviews from Firestore
+        const reviewsRef = collection(db, "reviews");
+        const q = query(reviewsRef, orderBy("timestamp", "desc"));
+        const querySnapshot = await getDocs(q);
+
+        querySnapshot.forEach((doc) => {
+          const reviewData = doc.data();
+          const reviewDiv = document.createElement("div");
+          reviewDiv.style.marginBottom = "20px";
+          reviewDiv.style.padding = "10px";
+          reviewDiv.style.border = "1px solid #ccc";
+          reviewDiv.style.borderRadius = "5px";
+          reviewDiv.innerHTML = `<strong>${reviewData.name}</strong><p>${reviewData.review}</p>`;
+          reviewsContainer.appendChild(reviewDiv);
+        });
+      }
+
+      // Fetch and display reviews on page load
+      window.onload = displayReviews;
+    </script>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">LvlUpPcs</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="reviews.html">Reviews</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-
     <h1>Customer Reviews</h1>
 
-    <!-- Add Review Form -->
+    <!-- Form to Submit Review -->
+    <h3>Submit Your Review</h3>
     <form id="review-form">
-        <textarea id="review-text" placeholder="Write your review..." required></textarea>
+        <input type="text" id="name" placeholder="Your Name" required><br><br>
+        <textarea id="review" placeholder="Your Review" required></textarea><br><br>
         <button type="submit">Submit Review</button>
     </form>
 
-    <h2>Reviews:</h2>
+    <hr>
+
+    <h3>Reviews</h3>
     <div id="reviews-container"></div>
 
-    <script>
-        document.getElementById('review-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const reviewText = document.getElementById('review-text').value;
-            const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
-
-            if (reviewText) {
-                reviews.push(reviewText);
-                localStorage.setItem('reviews', JSON.stringify(reviews));
-                displayReviews();
-            }
-        });
-
-        function displayReviews() {
-            const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
-            const reviewsContainer = document.getElementById('reviews-container');
-            reviewsContainer.innerHTML = '';
-
-            reviews.forEach((review, index) => {
-                const reviewDiv = document.createElement('div');
-                reviewDiv.classList.add('review');
-                reviewDiv.textContent = review;
-                reviewsContainer.appendChild(reviewDiv);
-            });
-        }
-
-        displayReviews();
-    </script>
 </body>
 </html>
 
