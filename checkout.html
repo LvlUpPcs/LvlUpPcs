@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - LvlUpPcs</title>
     <link rel="stylesheet" href="style.css">
-
-    <!-- PayPal SDK Script (insert your PayPal client ID here) -->
-    <script src="https://www.paypal.com/sdk/js?client-id=ATYAK6sxCGji_YAdV9RpvDWzXFnoRak286J4AOSGGaXKX5RWKiOcKGBTAuV8saN3OpDDj8jg11FMJ2Zn&components=buttons"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script> <!-- Include PayPal SDK -->
 </head>
 <body>
 
@@ -21,4 +19,54 @@
             <li><a href="shop.html" class="nav-link">Shop</a></li>
             <li><a href="reviews.html" class="nav-link">Reviews</a></li>
             <li><a href="contact.html" class="nav-link">Contact</a></li>
-            <li><a href="login.html" class="nav-link
+            <li><a href="login.html" class="nav-link">Login</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="page-title">Checkout</h1>
+
+    <form id="checkout-form" class="checkout-form">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <input type="text" id="shipping-address" placeholder="Shipping Address" required>
+        <input type="text" id="billing-address" placeholder="Billing Address" required>
+        <button type="submit">Proceed to Payment</button>
+    </form>
+
+    <!-- PayPal Button Container -->
+    <div id="paypal-button-container" style="display:none;">
+        <h3>Complete your purchase</h3>
+        <div id="paypal-button"></div>
+    </div>
+
+    <script>
+        // Handle the form submission
+        document.getElementById("checkout-form").addEventListener("submit", function(event) {
+            event.preventDefault();  // Prevent form from submitting
+
+            // Show the PayPal button after form submission
+            document.getElementById("paypal-button-container").style.display = "block";
+
+            // Render PayPal button
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: '100.00' // Replace with the actual order amount
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        alert('Payment successful! Thank you, ' + details.payer.name.given_name);
+                        window.location.href = 'thank-you.html'; // Redirect to Thank You page or Home page after success
+                    });
+                }
+            }).render('#paypal-button'); // This will render the PayPal button inside the #paypal-button div
+        });
+    </script>
+
+</body>
+</html>
