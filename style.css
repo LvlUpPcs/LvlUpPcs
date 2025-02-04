@@ -139,4 +139,50 @@ nav ul li a:hover {
 .contact-form button:hover {
     background-color: #e03e00;
 }
+/* Default is light mode */
+body {
+    background-color: white;
+    color: black;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+/* Optional: Customize other elements for both themes */
+.header {
+    background-color: lightblue; /* Light mode */
+}
+
+body.dark-mode .header {
+    background-color: #333;
+}
+<script>
+// Check if user preference is saved in localStorage
+const currentTheme = localStorage.getItem('theme');
+
+// If there is a saved theme, apply it
+if (currentTheme) {
+    document.body.classList.add(currentTheme);
+} else {
+    // If no theme is saved, check the system's theme preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark-mode');
+    }
+}
+
+// Toggle between light and dark mode
+function toggleTheme() {
+    if (document.body.classList.contains('dark-mode')) {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light'); // Save the preference
+    } else {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark'); // Save the preference
+    }
+}
+</script>
+<button onclick="toggleTheme()">Toggle Dark/Light Mode</button>
 
