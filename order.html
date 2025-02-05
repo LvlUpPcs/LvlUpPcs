@@ -42,12 +42,40 @@
 
     <script>
         document.getElementById("order-form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent form from submitting normally
+            event.preventDefault(); // Prevent default form submission
 
-            // Validate fields
-            const fields = ["name", "email", "house-number", "street", "city", "county", "postcode"];
-            let valid = true;
+            // Capture form fields
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const houseNumber = document.getElementById("house-number").value.trim();
+            const street = document.getElementById("street").value.trim();
+            const city = document.getElementById("city").value.trim();
+            const county = document.getElementById("county").value.trim();
+            const postcode = document.getElementById("postcode").value.trim();
 
-            fields.forEach(field => {
-                const input = document.getElementById(field);
-                if (!input.value.
+            // Validation check: ensure all fields are filled
+            if (!name || !email || !houseNumber || !street || !city || !county || !postcode) {
+                alert("Please fill in all required fields.");
+                return;
+            }
+
+            // Store form data in localStorage for checkout page
+            const orderDetails = {
+                name,
+                email,
+                houseNumber,
+                street,
+                city,
+                county,
+                postcode
+            };
+
+            localStorage.setItem("orderDetails", JSON.stringify(orderDetails));
+
+            // Redirect to checkout page
+            window.location.href = "checkout.html";
+        });
+    </script>
+
+</body>
+</html>
