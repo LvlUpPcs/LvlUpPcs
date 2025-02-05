@@ -196,3 +196,21 @@ nav ul li a:hover {
         width: 90%;
     }
 }
+/* Floating Dark Mode Button */
+#theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+#theme-toggle:hover {
+    background-color: darkorange;
+}
