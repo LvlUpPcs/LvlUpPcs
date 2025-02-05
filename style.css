@@ -68,9 +68,44 @@ button:hover {
     height: 750px;
 }
 
+/* Floating Dark Mode Button */
 #theme-toggle {
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 1000;
+}
+
+/* Review Star Rating */
+.star-rating {
+    display: flex;
+    justify-content: center;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    font-size: 30px;
+    color: gray;
+    cursor: pointer;
+}
+
+.star-rating input:checked ~ label {
+    color: gold;
+}
+
+/* Reviews Section */
+.review {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.dark-mode .review {
+    background-color: #333;
+    border-color: #555;
 }
