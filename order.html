@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order - LvlUpPcs</title>
+    <title>Order Details - LvlUpPcs</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Navigation Bar -->
     <nav>
         <div class="logo">
             <a href="index.html">LvlUpPcs</a>
@@ -23,11 +24,30 @@
 
     <h1 class="page-title">Order Details</h1>
 
-    <form class="order-form">
-        <input type="text" placeholder="Billing Address" required>
-        <input type="text" placeholder="Shipping Address" required>
-        <button type="submit">Place Order</button>
+    <!-- Order Details Form -->
+    <form id="order-form" class="order-form">
+        <h2>Billing Details</h2>
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email Address" required>
+
+        <h2>Shipping Address</h2>
+        <input type="text" id="house-number" placeholder="House Number" required>
+        <input type="text" id="street" placeholder="Street/Road Name" required>
+        <input type="text" id="city" placeholder="City" required>
+        <input type="text" id="county" placeholder="County" required>
+        <input type="text" id="postcode" placeholder="Postcode" required>
+
+        <button type="submit">Confirm Details</button>
     </form>
 
-</body>
-</html>
+    <script>
+        document.getElementById("order-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            // Validate fields
+            const fields = ["name", "email", "house-number", "street", "city", "county", "postcode"];
+            let valid = true;
+
+            fields.forEach(field => {
+                const input = document.getElementById(field);
+                if (!input.value.
