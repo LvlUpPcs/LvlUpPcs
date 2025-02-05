@@ -6,44 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - LvlUpPcs</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
     <nav>
         <div class="logo">
             <a href="index.html">LvlUpPcs</a>
         </div>
         <ul>
-            <li><a href="shop.html" class="nav-link">Shop</a></li>
-            <li><a href="reviews.html" class="nav-link">Reviews</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
-            <li><a href="login.html" class="nav-link">Login</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
         </ul>
     </nav>
 
-    <h1 class="page-title">Contact Us</h1>
+    <h1>Contact Us</h1>
 
-    <div class="contact-page">
-        <div class="contact-form">
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" required rows="5"></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-        
-        <div class="contact-info">
-            <h3>Our Location</h3>
-            <p>123 LvlUp Street, Tech City, 12345</p>
-            <img src="your-image.jpg" class="home-image" alt="Image">
-        </div>
-    </div>
+    <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
 
-    <footer>
-        <p>&copy; 2025 LvlUpPcs. All rights reserved.</p>
-    </footer>
+    <button id="theme-toggle">Toggle Dark Mode</button>
 
 </body>
 </html>
