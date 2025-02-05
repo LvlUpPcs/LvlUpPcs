@@ -6,76 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Details - LvlUpPcs</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
     <nav>
         <div class="logo">
             <a href="index.html">LvlUpPcs</a>
         </div>
         <ul>
-            <li><a href="shop.html" class="nav-link">Shop</a></li>
-            <li><a href="reviews.html" class="nav-link">Reviews</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
-            <li><a href="login.html" class="nav-link">Login</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
         </ul>
     </nav>
 
     <h1 class="page-title">Order Details</h1>
 
-    <!-- Order Details Form -->
-    <form id="order-form" class="order-form">
-        <h2>Billing Details</h2>
+    <form class="form-container" id="order-form">
         <input type="text" id="name" placeholder="Full Name" required>
-        <input type="email" id="email" placeholder="Email Address" required>
-
-        <h2>Shipping Address</h2>
-        <input type="text" id="house-number" placeholder="House Number" required>
-        <input type="text" id="street" placeholder="Street/Road Name" required>
+        <input type="text" id="address" placeholder="Street Address" required>
         <input type="text" id="city" placeholder="City" required>
         <input type="text" id="county" placeholder="County" required>
         <input type="text" id="postcode" placeholder="Postcode" required>
+        <input type="email" id="email" placeholder="Email" required>
 
         <button type="submit">Confirm Details</button>
     </form>
 
-    <script>
-        document.getElementById("order-form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // Capture form fields
-            const name = document.getElementById("name").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const houseNumber = document.getElementById("house-number").value.trim();
-            const street = document.getElementById("street").value.trim();
-            const city = document.getElementById("city").value.trim();
-            const county = document.getElementById("county").value.trim();
-            const postcode = document.getElementById("postcode").value.trim();
-
-            // Validation check: ensure all fields are filled
-            if (!name || !email || !houseNumber || !street || !city || !county || !postcode) {
-                alert("Please fill in all required fields.");
-                return;
-            }
-
-            // Store form data in localStorage for checkout page
-            const orderDetails = {
-                name,
-                email,
-                houseNumber,
-                street,
-                city,
-                county,
-                postcode
-            };
-
-            localStorage.setItem("orderDetails", JSON.stringify(orderDetails));
-
-            // Redirect to checkout page
-            window.location.href = "checkout.html";
-        });
-    </script>
+    <button id="theme-toggle">Toggle Dark Mode</button>
 
 </body>
 </html>
