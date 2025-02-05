@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - LvlUpPcs</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script>
+    <script defer src="script.js"></script>
 </head>
 <body>
 
@@ -15,57 +15,26 @@
             <a href="index.html">LvlUpPcs</a>
         </div>
         <ul>
-            <li><a href="shop.html" class="nav-link">Shop</a></li>
-            <li><a href="reviews.html" class="nav-link">Reviews</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
-            <li><a href="login.html" class="nav-link">Login</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
         </ul>
     </nav>
 
     <h1 class="page-title">Checkout</h1>
 
-    <div class="checkout-form">
-        <h2>Confirm Your Details</h2>
-        <p><strong>Name:</strong> <span id="display-name"></span></p>
-        <p><strong>Email:</strong> <span id="display-email"></span></p>
-        <p><strong>Address:</strong> <span id="display-address"></span></p>
+    <div class="form-container">
+        <p><strong>Order Summary:</strong></p>
+        <p id="order-summary"></p>
+
+        <button id="confirm-order">Proceed to Payment</button>
     </div>
 
     <div id="paypal-button-container"></div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Retrieve saved order details
-            const orderDetails = JSON.parse(localStorage.getItem("orderDetails"));
-            if (orderDetails) {
-                document.getElementById("display-name").textContent = orderDetails.name;
-                document.getElementById("display-email").textContent = orderDetails.email;
-                document.getElementById("display-address").textContent = `${orderDetails.houseNumber}, ${orderDetails.street}, ${orderDetails.city}, ${orderDetails.county}, ${orderDetails.postcode}`;
-            } else {
-                alert("No order details found! Please fill in the form first.");
-                window.location.href = "order.html"; // Redirect back to order page
-            }
+    <button id="theme-toggle">Toggle Dark Mode</button>
 
-            // PayPal Integration
-            paypal.Buttons({
-                createOrder: function (data, actions) {
-                    return actions.order.create({
-                        purchase_units: [{
-                            amount: {
-                                value: "50.00" // Change this to dynamic value if needed
-                            }
-                        }]
-                    });
-                },
-                onApprove: function (data, actions) {
-                    return actions.order.capture().then(function (details) {
-                        alert("Transaction completed by " + details.payer.name.given_name);
-                        window.location.href = "order-confirmation.html"; // Redirect after success
-                    });
-                }
-            }).render("#paypal-button-container");
-        });
-    </script>
-
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script>
 </body>
 </html>
